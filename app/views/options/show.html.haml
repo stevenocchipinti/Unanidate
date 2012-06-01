@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Datetime:
+  = @option.datetime
+%p
+  %b Event:
+  = @option.event
+
+= link_to 'Edit', edit_option_path(@option)
+\|
+= link_to 'Back', options_path

@@ -1,4 +1,8 @@
 Unanidate::Application.routes.draw do
+  resources :options
+
+  resources :events
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
