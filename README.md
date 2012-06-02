@@ -1,4 +1,4 @@
 Unanidate
 =========
 
-The tool that helps obtain a unanimous decision for the date of an event.
+A simple web app to help a group of people reach a UNANImous decision on a DATE to do something.
