@@ -1,4 +1,3 @@
-
 class OptionsController < ApplicationController
   # GET /options
   # GET /options.json

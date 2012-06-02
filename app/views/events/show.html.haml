@@ -7,6 +7,10 @@
   %b Description:
   = @event.description
 
+%ol
+  - @event.options.each do |o|
+    %li= o.datetime.to_s
+
 = link_to 'Edit', edit_event_path(@event)
 \|
 = link_to 'Back', events_path

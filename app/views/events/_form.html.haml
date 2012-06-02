@@ -12,5 +12,11 @@
   .field
     = f.label :description
     = f.text_area :description
+
+  = f.fields_for :options do |fo|
+    .field
+      = fo.label :datetime, "Date"
+      = fo.datetime_select :datetime
+
   .actions
     = f.submit 'Save'
