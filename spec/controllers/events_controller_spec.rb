@@ -24,9 +24,12 @@ describe EventsController do
   # Event. As you add validations to Event, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      title: "Party time!",
+      description: "We're gunna throw a big party and stuff"
+    }
   end
-  
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # EventsController. Be sure to keep this updated too.
