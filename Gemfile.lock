@@ -49,6 +49,8 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    formtastic (2.2.0)
+      actionpack (>= 3.0)
     haml (3.1.6)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -136,6 +138,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
+  formtastic
   haml-rails
   jquery-rails
   rails (= 3.2.5)
