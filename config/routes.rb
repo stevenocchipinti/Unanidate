@@ -1,5 +1,4 @@
 Unanidate::Application.routes.draw do
-  resources :options
 
   resources :events
 
