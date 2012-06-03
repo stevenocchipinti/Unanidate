@@ -3,4 +3,7 @@ class Event < ActiveRecord::Base
   has_many :options, :dependent => :destroy
   accepts_nested_attributes_for :options, :allow_destroy => true
   belongs_to :selected_option, class_name: Option
+
+  validates :title, :presence => true
+
 end
