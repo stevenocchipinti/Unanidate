@@ -2,10 +2,6 @@ module EventsHelper
 
   # Ref: http://stackoverflow.com/questions/2678009/how-to-add-and-remove-nested-model-fields-dynamically-using-haml-and-formtastic
 
-  def link_to_remove_fields(name, f)
-    f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
-  end
-
   def link_to_add_fields(name, f, association)
     new_object = f.object.class.reflect_on_association(association).klass.new
 
@@ -17,9 +13,11 @@ module EventsHelper
       render(association.to_s.singularize + "_fields", :f => builder)
     end
 
-    link_to_function(
+    button_tag(
       name,
-      "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"
+      :type => :button,
+      :class => "add-option-btn",
+      :onClick => "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"
     )
   end
 end

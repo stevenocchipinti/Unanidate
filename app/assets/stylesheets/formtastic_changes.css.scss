@@ -1,0 +1,19 @@
+.formtastic input {
+  height: 24px;
+  padding: 2px;
+}
+.formtastic input[type=datetime-local] {
+  margin-right: 1em;
+}
+.formtastic textarea {
+  padding: 2px;
+}
+.formtastic .actions {
+  border-top: 1px solid #BBB;
+  margin-top: 3em;
+  padding-top: 1em;
+  padding-left: 0;
+}
+.formtastic .link_action {
+  padding-top: 5px;
+}

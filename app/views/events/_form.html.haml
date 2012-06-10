@@ -2,12 +2,12 @@
   = f.inputs do
     = f.input :title
     = f.input :description
-    = f.input :selected_option, :label => "Selected date"
 
   %h2 Options
   = f.semantic_fields_for :options do |builder|
     = render "option_fields", :f => builder
   .links
-    = link_to_add_fields "Add option", f, :options
+    = link_to_add_fields "Add", f, :options
   = f.actions do
     = f.action :submit, :as => :button
+    = f.action :cancel, :as => :link, :label => "Go back"
