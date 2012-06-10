@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'haml-rails'
 gem 'jquery-rails'
 
+gem 'ember-rails'
 gem 'jquery-ui-themes'
 gem 'formtastic'
 gem 'validates_timeliness'
