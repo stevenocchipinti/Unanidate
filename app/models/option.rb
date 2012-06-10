@@ -4,6 +4,11 @@ class Option < ActiveRecord::Base
 
   validates_datetime :datetime
 
+  def selected?
+    return false unless event
+    id == event.selected_option_id
+  end
+
   def to_s
     datetime.strftime("%D @ %T")
   end
