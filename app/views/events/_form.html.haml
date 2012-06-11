@@ -2,6 +2,7 @@
   = f.inputs do
     = f.input :title
     = f.input :description
+    = f.input :selected_option_id, :as => :hidden, :value => nil
 
   %h2 Options
   = f.semantic_fields_for :options do |builder|
