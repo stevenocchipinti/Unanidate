@@ -17,3 +17,11 @@ $ ->
   $('.add-option-btn').click( ->
     setupButtons()
   )
+
+  # Unset the other checkboxes
+  $('input[name="event[selected_option_id]"]').click(
+    (event) ->
+      shouldBeChecked = event.target.checked
+      $('input[name="event[selected_option_id]"]').prop("checked", false)
+      $(event.target).prop("checked", shouldBeChecked)
+  )
