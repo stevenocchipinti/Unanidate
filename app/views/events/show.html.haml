@@ -2,8 +2,8 @@
   %h1= @event.title
   %h2= @event.selected_option
 
-%section
-  = @event.description
+%section.markdown
+  = markdown(@event.description)
 
 %p
   %b Options:

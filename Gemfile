@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-themes'
 gem 'formtastic'
 gem 'validates_timeliness'
+gem 'redcarpet'
 
 # Gems used only for assets and not required
 # in production environments by default.
