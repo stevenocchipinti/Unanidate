@@ -10,7 +10,7 @@ class Option < ActiveRecord::Base
   end
 
   def to_s
-    datetime.strftime("%D @ %T")
+    datetime.strftime("%D @ %l:%M %p")
   end
 
 end

@@ -1,19 +1,17 @@
-%p
-  %b Title:
-  = @event.title
-%p
-  %b Description:
+%header
+  %h1= @event.title
+  %h2= @event.selected_option
+
+%section
   = @event.description
-%p
-  %b Date and time:
-  = @event.selected_option
 
 %p
   %b Options:
   %ol
     - @event.options.each do |o|
-      %li= o.datetime.to_s
+      %li= o.to_s
 
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+.formtastic
+  %fieldset.actions
+    = link_to 'Edit', edit_event_path(@event), :class => "edit-btn"
+    = link_to 'Go back', events_path

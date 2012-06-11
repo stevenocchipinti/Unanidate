@@ -3,6 +3,9 @@ $ ->
     $('button[type=submit]').button({
       icons: {primary: 'ui-icon-check'}
     })
+    $('.edit-btn').button({
+      icons: {primary: 'ui-icon-pencil'}
+    })
     $('.remove-option-btn').button({
       icons: {primary: 'ui-icon-close', text: false}
     })
