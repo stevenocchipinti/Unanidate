@@ -1,6 +1,12 @@
 %header
   %h1= @event.title
-  %h2= @event.selected_option
+  %ul.details
+    %li.date
+      %span.ui-icon.ui-icon-calendar
+      = @event.selected_option.datetime.strftime "%A %-d %B %Y"
+    %li.time
+      %span.ui-icon.ui-icon-clock
+      = @event.selected_option.datetime.strftime "%l:%M %p"
 
 %section.markdown
   = markdown(@event.description)

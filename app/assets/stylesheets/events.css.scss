@@ -3,13 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 header {
+  color: #656565;
   h1 {
     margin-bottom: 0px;
   }
-  h2 {
-    font-size: 14px;
-    font-weight: normal;
-    margin-top: 2px;
+  ul {
+    padding: 0px;
+    margin-top: 8px;
+    li {
+      display: inline-block;
+      list-style-type: none;
+      line-height: 30px;
+      padding-right: 15px;
+      span.ui-icon {
+        display: inline-block;
+        margin-bottom: -2px;
+      }
+    }
   }
 }
 
