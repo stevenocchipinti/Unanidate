@@ -26,14 +26,14 @@
           = link_to "Unanidate", root_path, :class => "brand"
           .container.nav-collapse
             %ul.nav
-              %li= link_to "My events", events_path
               %li= link_to "New event", new_event_path
+              %li= link_to "My events", events_path
 
     .container
 
       .content
         .row
-          .span
+          .span12
             = yield
 
       %footer

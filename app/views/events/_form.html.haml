@@ -1,14 +1,16 @@
-= semantic_form_for @event do |f|
-  = f.inputs do
-    = f.input :title
-    = f.input :description
-    = f.input :selected_option_id, :as => :hidden, :input_html => {:value => nil}
-
-  %h2 Options
-  = f.semantic_fields_for :options do |builder|
-    = render "option_fields", :f => builder
-  .links
-    = link_to_add_fields "Add", f, :options
-  = f.actions do
-    = f.action :submit, :as => :button
-    = f.action :cancel, :as => :link, :label => "Go back"
+= form_for @event, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :title, :class => 'control-label'
+    .controls
+      = f.text_field :title, :class => 'text_field'
+  .control-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_area :description, :class => 'text_area'
+  .control-group
+    = f.label :selected_option_id, :class => 'control-label'
+    .controls
+      = f.number_field :selected_option_id, :class => 'number_field'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), events_path, :class => 'btn'
