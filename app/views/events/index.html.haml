@@ -3,10 +3,18 @@
 #accordion
   - @events.each do |event|
     %h3
-      %a= event.title
+      %a
+        = event.title
+        %span.summary
+          - date = event.selected_option
+          = " - #{date}" if date
+          = " - Unconfirmed" unless date
+
     %div
       = link_to markdown(event.description), event
 
 %br
 
-= link_to 'New Event', new_event_path
+.formtastic
+  %fieldset.actions
+    = link_to 'New Event', new_event_path, :class => "new-btn"

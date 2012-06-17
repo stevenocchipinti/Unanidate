@@ -8,8 +8,14 @@ a:hover {
   text-decoration: underline;
 }
 
-#accordion a:hover {
-  text-decoration: none;
+#accordion {
+  a:hover {
+    text-decoration: none;
+  }
+  span.summary {
+    font-weight: normal;
+    font-size: 0.8em;
+  }
 }
 
 section.markdown {

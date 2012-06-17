@@ -3,6 +3,9 @@ $ ->
     $('button[type=submit]').button({
       icons: {primary: 'ui-icon-check'}
     })
+    $('.new-btn').button({
+      icons: {primary: 'ui-icon-plusthick'}
+    })
     $('.edit-btn').button({
       icons: {primary: 'ui-icon-pencil'}
     })
