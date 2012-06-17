@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require jquery-ui.min
 //= require jquery-ui-timepicker-addon.js
 //= require_tree .
