@@ -1,4 +1,5 @@
 $ ->
+  # Setup up JQueryUI controls
   setup = ->
     $('button[type=submit]').button({
       icons: {primary: 'ui-icon-check'}
@@ -19,15 +20,20 @@ $ ->
       (eventObject) -> remove_fields(eventObject.target)
     )
     $("#accordion").accordion({
-      collapsible: true
+      collapsible: true,
+      active: false
     })
+
+  # Setup up JQueryUI controls on page load
   setup()
 
+  # When the page is changed, need to re-apply the JQuery controls
   $('.add-option-btn').click( ->
     setup()
   )
 
-  # Unset the other checkboxes
+  # Unset the other checkboxes when one is clicked
+  # This is to get uncheckable radio button group functionality
   $('input[name="event[selected_option_id]"]').click(
     (event) ->
       shouldBeChecked = event.target.checked
