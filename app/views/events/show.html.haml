@@ -1,19 +1,37 @@
-- model_class = @event.class
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human
+  %h1= @event.title
 
-%p
-  %strong= model_class.human_attribute_name(:title) + ':'
-  %br
-  = @event.title
-%p
-  %strong= model_class.human_attribute_name(:description) + ':'
-  %br
-  = @event.description
-%p
-  %strong= model_class.human_attribute_name(:selected_option_id) + ':'
-  %br
-  = @event.selected_option_id
+%ul.unstyled
+  %li
+    %i.icon-user{title: "Owner"}
+    Steven Occhipinti
+  - if @event.selected_option
+    %li
+      %i.icon-calendar{title: "Date"}
+      = @event.selected_option.date
+    %li
+      %i.icon-time{title: "Time"}
+      = @event.selected_option.time
+
+.well
+  = markdown(@event.description)
+
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Date
+      %th Time
+      %th Current Votes
+      %th Actions
+  %tbody
+    - @event.options.each do |o|
+      %tr
+        %td= o.date
+        %td= o.time
+        %td= ""
+        %td
+          = link_to "Vote", :root, :class => 'btn btn-primary btn-small'
+          = link_to "Select", :root, :class => 'btn btn-success btn-small'
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), events_path, :class => 'btn'
