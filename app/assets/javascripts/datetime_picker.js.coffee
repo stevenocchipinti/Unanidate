@@ -1,2 +1,4 @@
 $ ->
-  $('input[type="datetime-local"]').datetimepicker()
+  $('input[type="datetime-local"]').datetimepicker({
+    dateFormat: 'yy-mm-dd'
+  })
