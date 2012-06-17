@@ -28,7 +28,11 @@
       %tr
         %td= o.date
         %td= o.time
-        %td= ""
+        %td
+          -# TODO: Display votes and make the highest vote count "badge-success"
+          %span.badge{class: "#{o == @event.options.first ? "badge-success" : ""}"}
+            = Random.rand(0..10)
+          -# TODO: After the badge should probably be thumbnails of the voters
         %td
           = link_to "Vote", :root, :class => 'btn btn-primary btn-small'
           = link_to "Select", :root, :class => 'btn btn-success btn-small'
