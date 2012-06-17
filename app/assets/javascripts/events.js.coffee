@@ -1,5 +1,5 @@
 $ ->
-  setupButtons = ->
+  setup = ->
     $('button[type=submit]').button({
       icons: {primary: 'ui-icon-check'}
     })
@@ -15,10 +15,13 @@ $ ->
     $('.remove-option-btn').click(
       (eventObject) -> remove_fields(eventObject.target)
     )
-  setupButtons()
+    $("#accordion").accordion({
+      collapsible: true
+    })
+  setup()
 
   $('.add-option-btn').click( ->
-    setupButtons()
+    setup()
   )
 
   # Unset the other checkboxes
