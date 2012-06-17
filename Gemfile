@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.5'
+gem 'rails', '~> 3.2.5'
 gem 'sqlite3'
 gem 'haml-rails'
 gem 'jquery-rails'
 
-gem 'jquery-ui-themes'
 gem 'formtastic'
 gem 'validates_timeliness'
 gem 'redcarpet'
