@@ -34,8 +34,11 @@
             = Random.rand(0..10)
           -# TODO: After the badge should probably be thumbnails of the voters
         %td
-          = link_to "Vote", :root, :class => 'btn btn-primary btn-small'
-          = link_to "Select", :root, :class => 'btn btn-success btn-small'
+          - if @event.selected_option
+            = link_to "Un-select", :root, :class => 'btn btn-small' if o.selected?
+          - else
+            = link_to "Vote", :root, :class => 'btn btn-primary btn-small'
+            = link_to "Select", :root, :class => 'btn btn-success btn-small'
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), events_path, :class => 'btn'
