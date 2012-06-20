@@ -11,9 +11,8 @@ describe Option do
 
   describe "#selected?" do
     it "should return true if the event's selected_option is this option" do
-      pending
-      # FIXME: This relationship is only setup 1-way until it is saved :(
       @event.options << @option
+      @option.event = @event  # This would normally be set up upon save
       @event.selected_option = @option
       @option.selected?.should == true
     end
