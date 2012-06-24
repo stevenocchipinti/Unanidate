@@ -81,4 +81,10 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # PUT /events/1/select
+  # PUT /events/1/select.json
+  def select
+  end
+
 end

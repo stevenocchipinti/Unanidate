@@ -31,5 +31,12 @@ describe EventsController do
       delete("/events/1").should route_to("events#destroy", :id => "1")
     end
 
+    it "routes to #select" do
+      put("/events/1/select").should route_to(
+        "events#select",
+        :id => "1"
+      )
+    end
+
   end
 end
