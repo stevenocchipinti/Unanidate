@@ -1,2 +1,10 @@
-%ul.nested_fields
-  = f.input :datetime, :as => :date_and_time_picker, :label => "Date and time"
+.control-group
+  = f.label :datetime, :class => 'control-label'
+  .controls
+    .input-append
+      = f.text_field :datetime, :label => "Date and time", :class => "span7"
+      %span.btn>
+        %i.icon-calendar.datetimepicker
+      %p.help-block
+        -# TODO: This functionality won't work until Chronic gem is used
+        You can use English! &nbsp; e.g. Next Monday at 7:30 PM

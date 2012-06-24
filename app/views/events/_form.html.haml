@@ -8,6 +8,8 @@
     = f.label :description, :class => 'control-label'
     .controls
       = f.text_area :description, :class => 'text_area span7'
+  = fields_for :options do |option_fields|
+    = render "option_fields", :f => option_fields
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), events_path, :class => 'btn'
