@@ -35,12 +35,12 @@
           -# TODO: After the badge should probably be thumbnails of the voters
         %td
           - if @event.selected_option
-            = link_to "Un-select", :root, :class => 'btn btn-small' if o.selected?
+            = link_to "Un-select", :root, class: 'btn btn-small' if o.selected?
           - else
-            = link_to "Vote", :root, :class => 'btn btn-primary btn-small'
-            = link_to "Select", :root, :class => 'btn btn-success btn-small'
+            = link_to "Vote", :root, class: 'btn btn-primary btn-small'
+            = link_to "Select", select_event_path(@event.id, o.id), class: 'btn btn-success btn-small', method: :put
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), events_path, :class => 'btn'
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_event_path(@event), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), event_path(@event), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), event_path(@event), :method => "delete", :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))}, :class => 'btn btn-danger'
