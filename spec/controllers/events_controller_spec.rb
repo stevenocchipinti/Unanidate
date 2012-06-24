@@ -39,7 +39,7 @@ describe EventsController do
 
   describe "GET index" do
     it "assigns all events as @events" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create :event
       get :index, {}, valid_session
       assigns(:events).should eq([event])
     end
@@ -47,7 +47,7 @@ describe EventsController do
 
   describe "GET show" do
     it "assigns the requested event as @event" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create :event
       get :show, {:id => event.to_param}, valid_session
       assigns(:event).should eq(event)
     end
@@ -62,7 +62,7 @@ describe EventsController do
 
   describe "GET edit" do
     it "assigns the requested event as @event" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create :event
       get :edit, {:id => event.to_param}, valid_session
       assigns(:event).should eq(event)
     end
@@ -108,7 +108,7 @@ describe EventsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested event" do
-        event = Event.create! valid_attributes
+        event = FactoryGirl.create :event
         # Assuming there are no other events in the database, this
         # specifies that the Event created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -118,13 +118,13 @@ describe EventsController do
       end
 
       it "assigns the requested event as @event" do
-        event = Event.create! valid_attributes
+        event = FactoryGirl.create :event
         put :update, {:id => event.to_param, :event => valid_attributes}, valid_session
         assigns(:event).should eq(event)
       end
 
       it "redirects to the event" do
-        event = Event.create! valid_attributes
+        event = FactoryGirl.create :event
         put :update, {:id => event.to_param, :event => valid_attributes}, valid_session
         response.should redirect_to(event)
       end
@@ -132,7 +132,7 @@ describe EventsController do
 
     describe "with invalid params" do
       it "assigns the event as @event" do
-        event = Event.create! valid_attributes
+        event = FactoryGirl.create :event
         # Trigger the behavior that occurs when invalid params are submitted
         Event.any_instance.stub(:save).and_return(false)
         put :update, {:id => event.to_param, :event => {}}, valid_session
@@ -140,7 +140,7 @@ describe EventsController do
       end
 
       it "re-renders the 'edit' template" do
-        event = Event.create! valid_attributes
+        event = FactoryGirl.create :event
         # Trigger the behavior that occurs when invalid params are submitted
         Event.any_instance.stub(:save).and_return(false)
         put :update, {:id => event.to_param, :event => {}}, valid_session
@@ -151,14 +151,14 @@ describe EventsController do
 
   describe "DELETE destroy" do
     it "destroys the requested event" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create :event
       expect {
         delete :destroy, {:id => event.to_param}, valid_session
       }.to change(Event, :count).by(-1)
     end
 
     it "redirects to the events list" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create :event
       delete :destroy, {:id => event.to_param}, valid_session
       response.should redirect_to(events_url)
     end
