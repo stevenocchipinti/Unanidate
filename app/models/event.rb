@@ -7,4 +7,8 @@ class Event < ActiveRecord::Base
 
   validates :title, :presence => true
 
+  def select(option_id)
+    self.selected_option = options.find(option_id)
+  end
+
 end
