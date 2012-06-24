@@ -1,3 +1,4 @@
+# TODO: Try to use straight HAML and remove formtastic all together
 class DateAndTimePickerInput < Formtastic::Inputs::DatetimePickerInput
 
   def to_html
