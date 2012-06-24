@@ -22,5 +22,16 @@ end
 group :test, :development do
   gem 'debugger'
   gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails'
   gem 'spin'
+  gem "rails_best_practices"
+  gem 'awesome_print'
+end
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
 end

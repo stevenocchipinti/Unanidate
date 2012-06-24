@@ -3,25 +3,30 @@ require 'spec_helper'
 describe Option do
 
   before(:each) do
-    @event = Event.new title: "Test Event", description: "Test Description"
-    @event.id = 1
-    @option = Option.new id: 1, datetime: Time.now
-    @option.id = 1
+    @event = FactoryGirl.create :event_with_options
+    @option = @event.options.first
+  end
+
+  it "has a valid factory" do
+    FactoryGirl.build(:option).should be_valid
   end
 
   describe "#selected?" do
-    it "should return true if the event's selected_option is this option" do
-      @event.options << @option
-      @option.event = @event  # This would normally be set up upon save
+
+    it "returns true if this option is selected in its event" do
       @event.selected_option = @option
+      @event.save
       @option.selected?.should == true
     end
-    it "should return false if the event's selected_option is not this option" do
-      @event.options << @option
+
+    it "returns false if the event's selected_option is not this option" do
       @option.selected?.should == false
     end
-    it "should return false if there is no associated event" do
-      @option.selected?.should == false
+
+    it "returns false if there is no associated event" do
+      option = FactoryGirl.build :option
+      option.selected?.should == false
     end
+
   end
 end
