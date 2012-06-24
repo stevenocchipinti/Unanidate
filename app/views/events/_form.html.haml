@@ -3,15 +3,11 @@
   .control-group
     = f.label :title, :class => 'control-label'
     .controls
-      = f.text_field :title, :class => 'text_field'
+      = f.text_field :title, :class => 'text_field span7'
   .control-group
     = f.label :description, :class => 'control-label'
     .controls
-      = f.text_area :description, :class => 'text_area'
-  .control-group
-    = f.label :selected_option_id, :class => 'control-label'
-    .controls
-      = f.number_field :selected_option_id, :class => 'number_field'
+      = f.text_area :description, :class => 'text_area span7'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), events_path, :class => 'btn'
