@@ -32,9 +32,10 @@ describe EventsController do
     end
 
     it "routes to #select" do
-      put("/events/1/select").should route_to(
+      put("/events/1/select/1").should route_to(
         "events#select",
-        :id => "1"
+        :id => "1",
+        :option_id => "1"
       )
     end
 
