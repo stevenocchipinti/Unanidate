@@ -11,4 +11,8 @@ class Event < ActiveRecord::Base
     self.selected_option = options.find(option_id)
   end
 
+  def unselect
+    self.selected_option = nil
+  end
+
 end

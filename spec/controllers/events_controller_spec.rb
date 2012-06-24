@@ -207,4 +207,35 @@ describe EventsController do
     end
   end
 
+  describe "PUT unselect" do
+    it "calls the unselect method on the model" do
+      event = mock('event', id: 1)
+      option = mock('option', id: 1)
+      Event.should_receive(:find).and_return(event)
+      event.should_receive(:unselect)
+      event.stub(:save).and_return(false)
+      put :unselect, {:id => event.id, :option_id => option.id}, valid_session
+    end
+
+    it "assigns the requested event as @event" do
+      event = FactoryGirl.create :event
+      put :update, {:id => event.to_param, :event => valid_attributes}, valid_session
+      assigns(:event).should eq(event)
+    end
+
+    it "redirects to the event upon successful save" do
+      event = FactoryGirl.create :event
+      put :update, {:id => event.to_param, :event => valid_attributes}, valid_session
+      response.should redirect_to(event)
+    end
+
+    it "re-renders the 'edit' template upon failure to save" do
+      event = FactoryGirl.create :event
+      # Trigger the behavior that occurs when invalid params are submitted
+      Event.any_instance.stub(:save).and_return(false)
+      put :update, {:id => event.to_param, :event => {}}, valid_session
+      response.should render_template("edit")
+    end
+  end
+
 end

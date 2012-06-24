@@ -3,6 +3,7 @@ Unanidate::Application.routes.draw do
   resources :events do
     member do
       put 'select/:option_id', :action => :select, :as => :select
+      put 'unselect', :action => :unselect, :as => :unselect
     end
   end
 

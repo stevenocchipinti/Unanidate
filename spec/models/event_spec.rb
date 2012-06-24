@@ -38,4 +38,16 @@ describe Event do
     end
 
   end
+
+  describe "#unselect" do
+
+    it "unsets the selected_option attribute" do
+      @event = FactoryGirl.create :event_with_options
+      @event.selected_option = @event.options.last
+      @event.selected_option.should == @event.options.last
+      @event.unselect
+      @event.selected_option.should == nil
+    end
+
+  end
 end

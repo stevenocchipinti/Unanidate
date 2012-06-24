@@ -39,5 +39,12 @@ describe EventsController do
       )
     end
 
+    it "routes to #unselect" do
+      put("/events/1/unselect").should route_to(
+        "events#unselect",
+        :id => "1"
+      )
+    end
+
   end
 end
