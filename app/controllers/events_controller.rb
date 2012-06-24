@@ -82,9 +82,21 @@ class EventsController < ApplicationController
     end
   end
 
-  # PUT /events/1/select
-  # PUT /events/1/select.json
+  # PUT /events/1/select/2
+  # PUT /events/1/select/2.json
   def select
+    @event = Event.find(params[:id])
+    @event.select(params[:option_id])
+
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to @event, notice: 'Option was successfully selected.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "show" }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
 end
