@@ -39,7 +39,8 @@ describe EventsController do
 
   describe "GET index" do
     it "assigns all events as @events" do
-      event = FactoryGirl.create :event
+      event = FactoryGirl.build :event
+      Event.stub(:all).and_return([event])
       get :index, {}, valid_session
       assigns(:events).should eq([event])
     end
@@ -47,8 +48,9 @@ describe EventsController do
 
   describe "GET show" do
     it "assigns the requested event as @event" do
-      event = FactoryGirl.create :event
-      get :show, {:id => event.to_param}, valid_session
+      event = FactoryGirl.build :event
+      Event.stub(:find).and_return(event)
+      get :show, {:id => event.id}, valid_session
       assigns(:event).should eq(event)
     end
   end
@@ -62,11 +64,14 @@ describe EventsController do
 
   describe "GET edit" do
     it "assigns the requested event as @event" do
-      event = FactoryGirl.create :event
-      get :edit, {:id => event.to_param}, valid_session
+      event = FactoryGirl.build :event
+      Event.stub(:find).and_return(event)
+      get :edit, {:id => event.id}, valid_session
       assigns(:event).should eq(event)
     end
   end
+
+  # TODO: Prevent the below examples from using the database, like above
 
   describe "POST create" do
     describe "with valid params" do

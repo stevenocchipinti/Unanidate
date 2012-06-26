@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :event do
-    title       { "#{Faker::Name.first_name.pluralize} party" }
-    description { Faker::Lorem.paragraph }
+    sequence(:id) {|n| n }
+    title         { "#{Faker::Name.first_name.pluralize} party" }
+    description   { Faker::Lorem.paragraph }
 
     # This sub-factory be used in different forms, like this:
     #     @event = FactoryGirl.create :event_with_options
