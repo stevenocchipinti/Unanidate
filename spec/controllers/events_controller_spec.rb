@@ -39,16 +39,16 @@ describe EventsController do
 
   describe "GET index" do
     it "assigns all events as @events" do
-      event = FactoryGirl.build :event
-      Event.stub(:all).and_return([event])
+      events = [mock_model(Event)]
+      Event.stub(:all).and_return(events)
       get :index, {}, valid_session
-      assigns(:events).should eq([event])
+      assigns(:events).should eq(events)
     end
   end
 
   describe "GET show" do
     it "assigns the requested event as @event" do
-      event = FactoryGirl.build :event
+      event = mock_model(Event)
       Event.stub(:find).and_return(event)
       get :show, {:id => event.id}, valid_session
       assigns(:event).should eq(event)
@@ -64,7 +64,7 @@ describe EventsController do
 
   describe "GET edit" do
     it "assigns the requested event as @event" do
-      event = FactoryGirl.build :event
+      event = mock_model(Event)
       Event.stub(:find).and_return(event)
       get :edit, {:id => event.id}, valid_session
       assigns(:event).should eq(event)
@@ -72,6 +72,7 @@ describe EventsController do
   end
 
   # TODO: Prevent the below examples from using the database, like above
+  #       mock_model seems to be better than FactoryGirl for this!
 
   describe "POST create" do
     describe "with valid params" do
