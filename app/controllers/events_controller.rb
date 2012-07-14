@@ -99,8 +99,8 @@ class EventsController < ApplicationController
     end
   end
 
-  # PUT /events/1/unselect/2
-  # PUT /events/1/unselect/2.json
+  # PUT /events/1/unselect
+  # PUT /events/1/unselect
   def unselect
     @event = Event.find(params[:id])
     @event.unselect

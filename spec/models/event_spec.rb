@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+# TODO: Prevent the below examples from using the database
+
 describe Event do
 
   it "has a valid factory" do
