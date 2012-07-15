@@ -2,16 +2,13 @@ require 'spec_helper'
 
 describe "events/show" do
   before(:each) do
-    @event = assign(:event, stub_model(Event,
-      :title => "Title",
-      :description => "MyText"
-    ))
+    @event = FactoryGirl.attributes_for :event
+    assign(:event, stub_model(Event, @event))
   end
 
   it "renders attributes in <p>" do
     render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Title/)
-    rendered.should match(/MyText/)
+    rendered.should match(/#{@event[:title]}/)
+    rendered.should match(/#{@event[:description]}/)
   end
 end
