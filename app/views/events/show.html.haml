@@ -1,5 +1,5 @@
 .page-header
-  %h1= @event.title
+  %h1#event-title= @event.title
 
 %ul.unstyled
   %li
@@ -13,7 +13,7 @@
       %i.icon-time{title: "Time"}
       = @event.selected_option.time
 
-.well
+#description.well
   = markdown(@event.description)
 
 %table.table.table-striped.table-bordered
