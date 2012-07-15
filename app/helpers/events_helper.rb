@@ -8,16 +8,16 @@ module EventsHelper
     fields = f.fields_for(
       association,
       new_object,
-      :child_index => "new_#{association}"
+      child_index: "new_#{association}"
     ) do |builder|
-      render(association.to_s.singularize + "_fields", :f => builder)
+      render(association.to_s.singularize + "_fields", f: builder)
     end
 
     button_tag(
       name,
-      :type => :button,
-      :class => "add-option-btn",
-      :onClick => "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"
+      type: :button,
+      class: "add-option-btn",
+      onClick: "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"
     )
   end
 end

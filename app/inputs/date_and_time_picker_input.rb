@@ -9,8 +9,8 @@ class DateAndTimePickerInput < Formtastic::Inputs::DatetimePickerInput
       builder.hidden_field(:_destroy) <<
       builder.button(
         "Remove",
-        :class => "remove-option-btn",
-        :type => :button
+        class: "remove-option-btn",
+        type: :button
       ) <<
       selected_radio_button(builder, "Selected")
     end
@@ -21,7 +21,7 @@ class DateAndTimePickerInput < Formtastic::Inputs::DatetimePickerInput
   end
 
   def wrapper_html_options
-    super.merge(:class => "#{super[:class]} special-class" )
+    super.merge(class: "#{super[:class]} special-class" )
   end
 
   def selected_radio_button(builder, label)

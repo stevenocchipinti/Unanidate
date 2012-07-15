@@ -1,5 +1,7 @@
-
 class EventsController < ApplicationController
+
+  before_filter :load_event, except: [:index, :create, :new]
+
   # GET /events
   # GET /events.json
   def index
@@ -14,8 +16,6 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -35,7 +35,6 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
   end
 
   # POST /events
@@ -45,11 +44,19 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
+        format.html do
+          redirect_to @event, notice: 'Event was successfully created.'
+        end
+        format.json do
+          render json: @event, status: :created, location: @event
+        end
       else
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.html do
+          render "new"
+        end
+        format.json do
+          render json: @event.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -57,15 +64,21 @@ class EventsController < ApplicationController
   # PUT /events/1
   # PUT /events/1.json
   def update
-    @event = Event.find(params[:id])
-
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
+        format.html do
+          redirect_to @event, notice: 'Event was successfully updated.'
+        end
+        format.json do
+          head :no_content
+        end
       else
-        format.html { render action: "edit" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.html do
+          render "edit"
+        end
+        format.json do
+          render json: @event.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -73,7 +86,6 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
 
     respond_to do |format|
@@ -85,16 +97,23 @@ class EventsController < ApplicationController
   # PUT /events/1/select/2
   # PUT /events/1/select/2.json
   def select
-    @event = Event.find(params[:id])
     @event.select(params[:option_id])
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Option was successfully selected.' }
-        format.json { head :no_content }
+        format.html do
+          redirect_to @event, notice: 'Option was successfully selected.'
+        end
+        format.json do
+          head :no_content
+        end
       else
-        format.html { render action: "show" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.html do
+          render "show"
+        end
+        format.json do
+          render json: @event.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -102,18 +121,31 @@ class EventsController < ApplicationController
   # PUT /events/1/unselect
   # PUT /events/1/unselect
   def unselect
-    @event = Event.find(params[:id])
     @event.unselect
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Option was successfully unselected.' }
-        format.json { head :no_content }
+        format.html do
+          redirect_to @event, notice: 'Option was successfully unselected.'
+        end
+        format.json do
+          head :no_content
+        end
       else
-        format.html { render action: "show" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.html do
+          render "show"
+        end
+        format.json do
+          render json: @event.errors, status: :unprocessable_entity
+        end
       end
     end
+  end
+
+  private
+
+  def load_event
+    @event = Event.find(params[:id])
   end
 
 end
