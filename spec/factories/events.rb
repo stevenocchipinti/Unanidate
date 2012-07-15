@@ -4,7 +4,8 @@ FactoryGirl.define do
     title         { "#{Faker::Name.first_name.pluralize} party" }
     description   { Faker::Lorem.paragraph }
 
-    # This sub-factory be used in different forms, like this:
+    # Note: This sub-factory needs to be saved to the DB, build won't work :(
+    # Usage:
     #     @event = FactoryGirl.create :event_with_options
     #     @event = FactoryGirl.create :event_with_options, options_count: 10
     factory :event_with_options do
