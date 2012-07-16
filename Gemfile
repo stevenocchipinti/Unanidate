@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.5'
-gem 'sqlite3'
 gem 'haml-rails'
 gem 'jquery-rails'
 
@@ -20,6 +19,7 @@ group :assets do
 end
 
 group :test, :development do
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 2.0'
   gem 'factory_girl_rails'
   gem 'spin'
@@ -39,4 +39,8 @@ group :test do
   gem 'faker'
   gem 'capybara'
   gem 'rake'
+end
+
+group :production do
+  gem 'pg'
 end
