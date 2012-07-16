@@ -29,6 +29,8 @@ end
 group :development do
   gem 'debugger'
   gem 'awesome_print'
+  gem 'heroku'
+  gem 'foreman'
 end
 
 group :test do
