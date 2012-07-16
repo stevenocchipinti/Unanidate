@@ -3,7 +3,9 @@ rvm:
   - 1.9.3
 env:
   - DB=sqlite
+  - DB=postgres
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
+  - psql -c 'create database unanidate;' -U postgres
   - rake db:schema:load

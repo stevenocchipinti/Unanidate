@@ -18,11 +18,13 @@ test: &test
   pool: 5
   timeout: 5000
 
+postgres: &postgres
+  adapter: postgresql
+  database: unanidate
+  username: postgres
+
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  <<: *postgres
 
 cucumber:
   <<: *test
