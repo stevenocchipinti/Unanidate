@@ -40,3 +40,7 @@ group :test do
   gem 'capybara'
   gem 'rake'
 end
+
+group :production do
+  gem 'pg'
+end
