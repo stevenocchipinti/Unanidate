@@ -6,7 +6,5 @@ Feature: User views an event
   @javascript
   Scenario: User views an event
     Given I have 1 event in the system
-    When I browse to the event list page
-    And I click on the first event in the event list
-    And I click on the "Show" link
+    When I navigate to the first event
     Then I should see the event page

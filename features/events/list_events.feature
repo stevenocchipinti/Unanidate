@@ -5,5 +5,5 @@ Feature: User views the event list page
 
   Scenario: User views the list of events
     Given I have 2 events in the system
-    When I browse to the event list page
+    When I visit the event list page
     Then I should see 2 events
