@@ -7,4 +7,4 @@ Feature: User views an event
   Scenario: User views an event
     Given I have 1 event in the system
     When I navigate to the first event
-    Then I should see the event page
+    Then I should see an event page
